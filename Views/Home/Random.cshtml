@@ -1,0 +1,25 @@
+﻿<!--This page is responsible for displaying a random quote.-->
+
+@model IEnumerable<QuoteItem>
+
+@foreach (var x in Model)
+{
+    <tr>
+        <td>@x.Quote</td>
+        <td>@x.Author_Speaker</td>
+        <td>@x.Date</td>
+        <td>@x.Subject</td>
+        <td>@x.Citation</td>
+        <!--This action link will trigger the edit action.
+        As far as I understand, it requires the actionmethod (edit) and also what is named in the controller which in this case is the same.
+        It also needs route arguments to correspond to the proper instance of the model (movieId will be used for this).
+        Also, a button for the action is made here too.-->
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = x.QuoteId }, new { @class = "btn btn-sm btn-primary" })
+        </td>
+        <!--This action will trigger the delete action-->
+        <td>
+            @Html.ActionLink("Delete", "Delete", new { id = x.QuoteId }, new { @class = "btn btn-sm btn-primary" })
+        </td>
+    </tr>
+}

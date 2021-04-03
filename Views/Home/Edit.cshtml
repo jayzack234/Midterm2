@@ -1,0 +1,29 @@
+﻿@model QuoteItem
+<!--This is basically a duplicate for the EnterQuote Form View, it's needed for the Edit option to funciton properly-->
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="QuoteId" />
+    <label asp-for="Quote">Quote:</label>
+    <input asp-for="Quote" />
+    <br />
+
+    <label asp-for="Author_Speaker">Author/Speaker:</label>
+    <input asp-for="Author_Speaker" />
+    <br />
+
+    <label asp-for="Date">Date:</label>
+    <input asp-for="Date" />
+    <br />
+
+    <label asp-for="Subject">Subject:</label>
+    <input asp-for="Subject" />
+    <br />
+
+    <label asp-for="Citation">Citation:</label>
+    <input asp-for="Citation" />
+    <br />
+
+    <button type="submit">Add Quote</button>
+    <br />
+
+    <div asp-validation-summary="All"></div>
+</form>

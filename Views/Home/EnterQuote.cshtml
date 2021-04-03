@@ -1,0 +1,31 @@
+﻿@model QuoteItem
+<!--Form used to gather the information for eah quote-->
+<div class="row justify-content-center">
+    <form asp-action="EnterQuote" method="post">
+        <label asp-for="Quote">Quote:</label>
+        <input asp-for="Quote" />
+        <br />
+
+        <label asp-for="Author_Speaker">Author/Speaker:</label>
+        <input asp-for="Author_Speaker" />
+        <br />
+
+        <label asp-for="Date">Date:</label>
+        <input asp-for="Date" />
+        <br />
+
+        <label asp-for="Subject">Subject:</label>
+        <input asp-for="Subject" />
+        <br />
+
+        <label asp-for="Citation">Citation:</label>
+        <input asp-for="Citation" />
+        <br />
+
+        <button class="btn btn-success btn-lg" type="submit">Add Quote</button>
+        <a asp-action="Index" class="btn btn-success btn-lg" role="button">Home</a>
+        <br />
+
+        <div asp-validation-summary="All"></div>
+    </form>
+    </div>

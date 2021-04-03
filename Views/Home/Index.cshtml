@@ -1,0 +1,54 @@
+﻿
+<!--This is the home page-->
+@model IEnumerable<QuoteItem>
+    <!--This page will display all the quotes currently in the database. It will also have the options to both edit and delete from
+        the page itself any quote currently in the database-->
+    <div class="row justify-content-md-center">
+
+
+        <!--Table for the Quotes-->
+        <div class="col-9">
+            <!--Create a table to iterate through the inputed quotes-->
+            <table align="center" class="table table-bordered">
+                <!--Table Headers-->
+                <thead class="thead-light">
+                    <tr>
+                        <th>Quote</th>
+                        <th>Author/Speaker</th>
+                        <th>Date</th>
+                        <th>Subject</th>
+                        <th>Citation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--Gets every instance-->
+                    @foreach (var x in Model)
+                    {
+                        <tr>
+                            <td>@x.Quote</td>
+                            <td>@x.Author_Speaker</td>
+                            <td>@x.Date</td>
+                            <td>@x.Subject</td>
+                            <td>@x.Citation</td>
+                            <!--This action link will trigger the edit action.
+                            As far as I understand, it requires the actionmethod (edit) and also what is named in the controller which in this case is the same.
+                            It also needs route arguments to correspond to the proper instance of the model (movieId will be used for this).
+                            Also, a button for the action is made here too.-->
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = x.QuoteId }, new { @class = "btn btn-sm btn-primary" })
+                            </td>
+                            <!--This action will trigger the delete action-->
+                            <td>
+                                @Html.ActionLink("Delete", "Delete", new { id = x.QuoteId }, new { @class = "btn btn-sm btn-primary" })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <p align="center" class="lead text-center">
+        <!--asp actions to act as buttons to take the user to a different view-->
+        <a asp-action="EnterQuote" class="btn btn-success btn-lg" role="button">Submit a Quote</a>
+    </p>
